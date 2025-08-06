@@ -1,3 +1,13 @@
+APPLICATION PREVIEW
+<img width="911" height="364" alt="image" src="https://github.com/user-attachments/assets/d5dbc0bd-a645-411e-be8a-77503bd6b6e6" />
+
+Application editing and making changes in odata 
+EDIT
+<img width="902" height="362" alt="image" src="https://github.com/user-attachments/assets/bff0d808-5400-454d-a4e1-ec42086ca29f" />
+
+
+
+
 ## Application Details
 |               |
 | ------------- |
