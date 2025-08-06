@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
 ], (Controller) => {
     "use strict";
 
@@ -92,6 +92,39 @@ sap.ui.define([
         error: function(oError){
             console.log(oError);
         }})
+        },
+
+        onDrop: function(oEvent) {
+            console.log("Drop event triggered");
+            var oDraggedItem = oEvent.getParameter("draggedControl");
+            var oDroppedItem = oEvent.getParameter("droppedControl");
+            var sDropPosition = oEvent.getParameter("dropPosition");
+            
+            console.log("Dragged item:", oDraggedItem);
+            console.log("Dropped on item:", oDroppedItem);
+            console.log("Drop position:", sDropPosition);
+            
+            // Get the table
+            var oTable = this.getView().byId("idProducts");
+            var aItems = oTable.getItems();
+            
+            // Find indices
+            var iDraggedIndex = aItems.indexOf(oDraggedItem);
+            var iDroppedIndex = aItems.indexOf(oDroppedItem);
+            
+            if (iDraggedIndex !== -1 && iDroppedIndex !== -1) {
+                // Remove dragged item from its current position
+                oTable.removeItem(oDraggedItem);
+                
+                // Insert at new position
+                if (sDropPosition === "After") {
+                    oTable.insertItem(oDraggedItem, iDroppedIndex);
+                } else {
+                    oTable.insertItem(oDraggedItem, iDroppedIndex);
+                }
+                
+                console.log("Item moved from index", iDraggedIndex, "to", iDroppedIndex);
+            }
         }
     });
 });

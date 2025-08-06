@@ -1,5 +1,7 @@
 <mvc:View controllerName="odatacrud.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:DT="odatacrud.util.DragTokenizer"
+    xmlns:dnd="sap.ui.core.dnd"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
      <Table id = "idProducts" items = "{/results}">
@@ -22,16 +24,20 @@
        </columns>
        <items>
          <ColumnListItem>
+           <dragDropConfig>
+             <dnd:DragInfo groupName="productItems"/>
+             <dnd:DropInfo groupName="productItems" drop="onDrop"/>
+           </dragDropConfig>
            <cells>
-             <Text text="{ID}" />                 
-             <Text text="{Name}" />
-             <Text text="{Price}" />
-             <Input value="{Rating}" editable="false"/>
-             <HBox>
-                <Button icon="sap-icon://edit" text="Edit" press="onEdit"/>
-                <Button class ="" icon="sap-icon://delete"  type ="Reject" text="Delete" />
-                <Button icon="sap-icon://copy" text="Create" />
-             </HBox>
+                <Text text="{ID}" />                 
+                <Text text="{Name}" />
+                <Text text="{Price}" />
+                <Input value="{Rating}" editable="false"/>
+                <HBox>
+                    <Button icon="sap-icon://edit" text="Edit" press="onEdit"/>
+                    <Button class ="" icon="sap-icon://delete"  type ="Reject" text="Delete" />
+                    <Button icon="sap-icon://copy" text="Create" />
+                </HBox>
            </cells>
          </ColumnListItem>
        </items>
